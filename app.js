@@ -1,8 +1,22 @@
 const nameInputElement = document.querySelector("#name");
 const phoneInputElement = document.querySelector("#phone");
 const addOrEditContactButton = document.querySelector(".add-contact-btn");
-const table = document.querySelector("#phone-book-table");
+
 const phoneNumberDetails = [];
+
+const table = document.querySelector("#phone-book-table");
+const rows = table.querySelectorAll("tr");
+
+// for loop starts from 1 because the first element with index 0 is th not normal tr
+for (let i = 1; i <= rows.length - 1; i++) {
+  phoneNumberDetails.push({
+    name: rows[i].querySelector("td:nth-child(1)").innerHTML,
+    phoneNumber: rows[i].querySelector("td:nth-child(2)").innerHTML,
+  });
+}
+
+// console.log(table.querySelectorAll("tr"));
+
 const errorOutputParagraph = document.querySelector("#error-output");
 
 let tableRowToBeEdited = null;
@@ -46,6 +60,7 @@ function addNewContact() {
     const thead = createTableHeader();
     table.appendChild(thead);
   }
+
   phoneNumberDetails.push({
     name: name,
     phoneNumber: phoneNumber,
