@@ -143,6 +143,13 @@ function editContact() {
   const name = nameInputElement.value;
   const phoneNumber = phoneInputElement.value;
 
+  if (name.length < 3 || phoneNumber.length < 3) {
+    errorOutputParagraph.innerHTML =
+      "The name and phone number must contain at least 3 characters";
+    errorOutputParagraph.style.color = "#640D6B";
+    return;
+  }
+
   tableRowToBeEdited.querySelector("td:nth-child(1)").innerHTML = name;
   tableRowToBeEdited.querySelector("td:nth-child(2)").innerHTML = phoneNumber;
 

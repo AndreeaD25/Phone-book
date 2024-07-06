@@ -7,8 +7,8 @@ body {
 h1 {
   color: #32012f;
 }
+
 .container {
-  /* background-color: #e2bbe9; */
   text-align: center;
 }
 
@@ -51,6 +51,8 @@ h1 {
   padding: 30px;
   margin-top: 50px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
 }
 
 table thead {
